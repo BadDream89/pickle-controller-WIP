@@ -103,6 +103,14 @@ while True:
             case "remove":
                 
                 key = input("Key: ")
+                
+                with open(file, "rb") as f:
+                    data = pickle.load(f)
+                
+                data.pop(key)
+                
+                with open(file, "wb") as f:
+                    pickle.dump(data, f)
             
     except KeyboardInterrupt: # exit function on Ctrl+C
         print("\n\nExited from the program.")
